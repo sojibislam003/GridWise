@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GridWise - Smart Energy Optimization Dashboard. Upload config, analyze 24-hour schedules, and optimize grid, solar, and battery performance.">
+  <title>GridWise - Smart Energy Optimization Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-nav">
+        <a href="#home" class="nav-item active" id="navHome">
+          <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+          <span>Home</span>
+        </a>
+      </div>
+
+      <!-- Eco Slogan Footer in Sidebar -->
+      <div class="sidebar-footer">
+        <!-- Sprout & Leaf Vector Icon -->
+        <svg class="eco-sprout-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M24 42C24 32 20 20 6 18C6 32 16 42 24 42Z" fill="#14b8a6" fill-opacity="0.9"/>
+          <path d="M24 42C24 28 32 12 42 8C42 24 30 42 24 42Z" fill="#2dd4bf"/>
+          <path d="M24 42C24 34 22 26 12 24" stroke="#004d40" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="12,38 7,45 10,45 6,52 14,44 11,44" fill="#00e599" transform="scale(0.8) translate(8, 2)"/>
+        </svg>
+        <div class="sidebar-footer-text">
+          <span>Cleaner Energy</span>
+          <span>A Greener Future</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <div class="main-wrapper">
+      
+      <!-- Panoramic Header with Smart Eco-City Vector Landscape -->
+      <header class="header-banner">
+        <!-- Brand Identity -->
+        <div class="brand-container">
+          <svg class="brand-logo-icon" viewBox="0 0 64 64" fill="none">
+            <!-- Glowing energy shield leaf -->
+            <path d="M32 4C16 12 8 28 10 46C12 56 22 62 32 62C42 62 52 56 54 46C56 28 48 12 32 4Z" fill="url(#brandGrad)"/>
+            <!-- Electric lightning accent cutout -->
+            <path d="M35 14L21 34H33L29 52L45 28H33L35 14Z" fill="#041a15"/>
+            <defs>
+              <linearGradient id="brandGrad" x1="8" y1="4" x2="56" y2="62" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#34f5ab"/>
+                <stop offset="0.6" stop-color="#00e599"/>
+                <stop offset="1" stop-color="#00b4a7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="brand-text">
+            <h1 class="brand-title">GridWise</h1>
+            <p class="brand-subtitle">Smart Energy Optimization Dashboard</p>
+          </div>
+        </div>
+
+        <!-- Panoramic Vector Landscape Art -->
+        <svg class="header-artwork-svg" viewBox="0 0 1000 130" preserveAspectRatio="xMaxYMid slice" fill="none">
+          <defs>
+            <!-- Sky Gradient -->
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#06252b" stop-opacity="0"/>
+              <stop offset="25%" stop-color="#043a34" stop-opacity="0.8"/>
+              <stop offset="55%" stop-color="#008055" stop-opacity="0.95"/>
+              <stop offset="85%" stop-color="#00bf75" stop-opacity="0.98"/>
+              <stop offset="100%" stop-color="#15a065"/>
+            </linearGradient>
+            <!-- Sun glow -->
+            <radialGradient id="sunGlow" cx="800" cy="35" r="70" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffae0" stop-opacity="1"/>
+              <stop offset="30%" stop-color="#fef08a" stop-opacity="0.85"/>
+              <stop offset="60%" stop-color="#84cc16" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#15803d" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Mountain gradient 1 (far) -->
+            <linearGradient id="mountainFar" x1="0" y1="40" x2="0" y2="130" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#04593f" stop-opacity="0.65"/>
+              <stop offset="1" stop-color="#023b2c" stop-opacity="0.85"/>
+            </linearGradient>
+            <!-- Mountain gradient 2 (near) -->
+            <linearGradient id="mountainNear" x1="0" y1="60" x2="0" y2="130" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#064e3b"/>
+              <stop offset="1" stop-color="#022c22"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Sky Backdrop Fill -->
+          <rect width="1000" height="130" fill="url(#skyGrad)"/>
+
+          <!-- Glowing Rising Sun/Moon -->
+          <circle cx="800" cy="35" r="45" fill="url(#sunGlow)"/>
+          <circle cx="800" cy="35" r="18" fill="#fffde6"/>
+
+          <!-- Distant Atmospheric Mountain Ridges -->
+          <path d="M150 130 Q300 70 450 90 T750 65 T1000 75 L1000 130 Z" fill="url(#mountainFar)"/>
+          <path d="M350 130 Q500 85 620 95 T850 80 T1000 90 L1000 130 Z" fill="url(#mountainNear)"/>
+
+          <!-- Modern Smart City Skyline Silhouette with Windows -->
+          <g id="citySilhouette" fill="#042a22">
+            <!-- Buildings -->
+            <rect x="710" y="55" width="22" height="75"/>
+            <rect x="735" y="40" width="28" height="90"/>
+            <polygon points="749,25 735,40 763,40"/>
+            <rect x="766" y="58" width="18" height="72"/>
+            <rect x="787" y="48" width="26" height="82"/>
+            <rect x="816" y="65" width="20" height="65"/>
+            <rect x="839" y="52" width="24" height="78"/>
+            <rect x="866" y="60" width="16" height="70"/>
+            
+            <!-- Glowing windows -->
+            <g fill="#4ade80" opacity="0.85">
+              <rect x="740" y="46" width="3" height="4"/>
+              <rect x="746" y="46" width="3" height="4"/>
+              <rect x="752" y="46" width="3" height="4"/>
+              <rect x="740" y="56" width="3" height="4"/>
+              <rect x="752" y="56" width="3" height="4"/>
+              <rect x="740" y="68" width="3" height="4"/>
+              <rect x="746" y="68" width="3" height="4"/>
+              <rect x="792" y="56" width="3" height="4"/>
+              <rect x="802" y="56" width="3" height="4"/>
+              <rect x="792" y="66" width="3" height="4"/>
+              <rect x="797" y="66" width="3" height="4"/>
+              <rect x="844" y="60" width="3" height="4"/>
+              <rect x="852" y="60" width="3" height="4"/>
+            </g>
+          </g>
+
+          <!-- Photovoltaic Solar Panel Arrays on Ridge -->
+          <g id="solarArrays" transform="translate(640, 68)">
+            <!-- Panels 1 -->
+            <polygon points="0,22 18,12 36,12 18,22" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8"/>
+            <polygon points="20,22 38,12 56,12 38,22" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8"/>
+            <line x1="9" y1="17" x2="27" y2="17" stroke="#93c5fd" stroke-width="0.5"/>
+            <line x1="29" y1="17" x2="47" y2="17" stroke="#93c5fd" stroke-width="0.5"/>
+            <!-- Stanchions -->
+            <line x1="18" y1="22" x2="18" y2="28" stroke="#064e3b" stroke-width="1.5"/>
+            <line x1="38" y1="22" x2="38" y2="28" stroke="#064e3b" stroke-width="1.5"/>
+
+            <!-- Panels 2 -->
+            <polygon points="45,26 63,16 81,16 63,26" fill="#0369a1" stroke="#38bdf8" stroke-width="0.8"/>
+            <line x1="63" y1="26" x2="63" y2="32" stroke="#064e3b" stroke-width="1.5"/>
+          </g>
+
+          <!-- Wind Turbine 1 (Main Hero Turbine) -->
+          <g id="windTurbine1">
+            <!-- Tower -->
+            <polygon points="318,115 319,48 321,48 322,115" fill="#e2e8f0"/>
+            <!-- Hub Center -->
+            <circle cx="320" cy="48" r="3.5" fill="#f8fafc"/>
+            <!-- 3 Rotating Aerodynamic Blades -->
+            <g class="spin-blades">
+              <!-- Blade 1 -->
+              <path d="M320 48 Q321 20 320 5 Q318 20 320 48Z" fill="#ffffff" filter="drop-shadow(0 0 2px rgba(255,255,255,0.7))"/>
+              <!-- Blade 2 (120 deg) -->
+              <path d="M320 48 Q345 60 357 70 Q340 68 320 48Z" fill="#ffffff" filter="drop-shadow(0 0 2px rgba(255,255,255,0.7))"/>
+              <!-- Blade 3 (240 deg) -->
+              <path d="M320 48 Q295 60 283 70 Q300 68 320 48Z" fill="#ffffff" filter="drop-shadow(0 0 2px rgba(255,255,255,0.7))"/>
+            </g>
+          </g>
+
+          <!-- Wind Turbine 2 (Smaller in background) -->
+          <g id="windTurbine2">
+            <!-- Tower -->
+            <polygon points="409,105 409.5,62 410.5,62 411,105" fill="#cbd5e1" opacity="0.8"/>
+            <circle cx="410" cy="62" r="2.5" fill="#f1f5f9"/>
+            <g class="spin-blades-2">
+              <path d="M410 62 Q411 40 410 28 Q408.5 40 410 62Z" fill="#f8fafc"/>
+              <path d="M410 62 Q428 72 438 78 Q425 76 410 62Z" fill="#f8fafc"/>
+              <path d="M410 62 Q392 72 382 78 Q395 76 410 62Z" fill="#f8fafc"/>
+            </g>
+          </g>
+
+          <!-- Foreground Rolling Emerald Hill -->
+          <path d="M0 130 Q250 110 500 120 T1000 115 L1000 130 Z" fill="#022119"/>
+        </svg>
+      </header>
+
+      <!-- Main Dashboard Container -->
+      <main class="dashboard-content">
+
+        <!-- 1. Drag & Drop File Upload Section -->
+        <section class="upload-card" id="dropZone" aria-label="JSON Configuration File Upload">
+          <div class="upload-left">
+            <div class="cloud-icon-wrap">
+              <!-- Cloud Upload Vector Icon -->
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                <polyline points="12 11 12 17"/>
+                <polyline points="9 14 12 11 15 14"/>
+              </svg>
+            </div>
+            <p class="upload-text">
+              Drag & Drop your JSON config file here, or <span class="upload-browse-btn" id="browseBtn">Browse</span>
+            </p>
+          </div>
+
+          <button type="button" class="btn-sample-template" id="btnSampleTemplate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Download Sample JSON Template</span>
+          </button>
+          
+          <input type="file" id="fileInput" accept=".json,application/json">
+        </section>
+
+        <!-- 2. Optimization Results Panel -->
+        <section class="results-card-container" aria-label="Optimization Key Metrics">
+          <div class="section-header">
+            <div class="section-badge-icon">
+              <!-- Bar Chart Icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zM16.2 13h2.8v6h-2.8z"/>
+              </svg>
+            </div>
+            <h2 class="section-title">OPTIMIZATION RESULTS</h2>
+          </div>
+
+          <!-- 3 Key Metric Cards -->
+          <div class="metric-cards-grid">
+            <!-- Card 1: Total Energy Cost -->
+            <div class="metric-card card-cost">
+              <div class="metric-icon-circle circle-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-1.12c-1.74-.29-3-1.63-3-3.38h2c0 1.1.9 2 2 2s2-.9 2-2c0-.97-.54-1.57-1.72-2.14l-1.3-.62C9.43 8.65 8 7.35 8 5.5 8 3.75 9.26 2.41 11 2.12V1h2v1.12c1.47.25 2.65 1.34 2.89 2.88h-2.02c-.22-.64-.78-1-1.87-1-1.1 0-2 .9-2 2 0 .84.53 1.39 1.54 1.88l1.3.62C12.57 9.35 14 10.65 14 12.5c0 1.75-1.26 3.09-3 3.38V16.5z"/>
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-label">Total Energy Cost</span>
+                <div class="metric-stat-row">
+                  <span class="metric-value" id="metricTotalCost">$42.50</span>
+                  <span class="metric-badge badge-green" id="metricCostBadge">(-24%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Peak Load Reduction -->
+            <div class="metric-card card-peak">
+              <div class="metric-icon-circle circle-blue">
+                <!-- Lightning Bolt Icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-label">Peak Load Reduction</span>
+                <div class="metric-stat-row">
+                  <span class="metric-value" id="metricPeakReduction">15.2 kW</span>
+                  <span class="metric-badge badge-cyan" id="metricPeakBadge">(-18%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Constraint Status -->
+            <div class="metric-card card-constraint">
+              <div class="metric-icon-circle circle-purple">
+                <!-- Shield Icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-label">Constraint Status</span>
+                <div class="constraint-status-row">
+                  <svg class="check-circle-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span class="constraint-status-text" id="metricConstraintStatus">All Met</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. 24-Hour Schedule & Battery Chart Card -->
+        <section class="chart-container-card" aria-label="24-Hour Power Usage and Battery Schedule">
+          <div class="chart-header">
+            <div class="chart-header-left">
+              <div class="chart-badge-icon">
+                <!-- Line Chart Icon -->
+                <svg viewBox="0 0 24 24">
+                  <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+                </svg>
+              </div>
+              <h3 class="chart-title">Power Usage & Battery Schedule (24 Hours)</h3>
+            </div>
+
+            <!-- Series Legend & Interactive Toggles -->
+            <div class="chart-legend" role="region" aria-label="Chart Legend Filters">
+              <div class="legend-item" data-series="grid" title="Click to toggle Grid Power">
+                <span class="legend-dot dot-grid"></span>
+                <span>Grid Power</span>
+              </div>
+              <div class="legend-item" data-series="solar" title="Click to toggle Solar">
+                <span class="legend-dot dot-solar"></span>
+                <span>Solar</span>
+              </div>
+              <div class="legend-item" data-series="charge" title="Click to toggle Battery Charge">
+                <span class="legend-dot dot-charge"></span>
+                <span>Battery Charge</span>
+              </div>
+              <div class="legend-item" data-series="discharge" title="Click to toggle Battery Discharge">
+                <span class="legend-dot dot-discharge"></span>
+                <span>Battery Discharge</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart Canvas Viewport -->
+          <div class="chart-viewport">
+            <canvas id="scheduleChartCanvas"></canvas>
+            <div class="chart-tooltip" id="chartTooltip" role="tooltip"></div>
+          </div>
+        </section>
+
+        <!-- 4. Bottom Action Buttons -->
+        <section class="bottom-actions">
+          <button type="button" class="btn-action-primary" id="btnDownloadJson">
+            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Download Result JSON</span>
+          </button>
+
+          <button type="button" class="btn-action-secondary" id="btnDownloadCsv">
+            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Download Result CSV</span>
+          </button>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Animated Toast Notification Container -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="assertive">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #00e599">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    </svg>
+    <span id="toastMessage">Configuration loaded successfully</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
